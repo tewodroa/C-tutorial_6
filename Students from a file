@@ -1,0 +1,44 @@
+#include <iostream>
+
+#include <fstream>
+
+#include <string>
+
+using namespace std;
+
+int main() {
+
+ifstream studentsFile; studentsFile.open("students.txt");
+
+if (!studentsFile.is_open()) {
+
+cout << "Failed to open file!" << endl;
+
+return 0;
+
+}
+
+string line;
+
+string student;
+
+string className;
+
+getline(studentsFile, line);
+
+while (studentsFile) {
+
+student = line.substr(2);
+
+className = line.substr(0, 1);
+
+cout << student << ": class " << className << endl; getline(studentsFile, line);
+
+}
+
+studentsFile.close();
+
+return 0;
+
+}
+
